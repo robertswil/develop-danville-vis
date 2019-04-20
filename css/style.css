@@ -1,0 +1,118 @@
+svg {
+  display: block;
+  margin: auto;
+}
+
+.axis,
+.frame {
+  shape-rendering: crispEdges;
+}
+
+.axis line {
+  stroke: #000;
+}
+
+.axis .axis-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+  fill: #555;
+}
+
+.frame {
+  fill: none;
+  stroke: #aaa;
+}
+
+.top20bubble {
+  fill: #b2641a;
+  fill-opacity: .7;
+  stroke:#000;
+  stroke-opacity: .3;
+}
+
+.expBubble {
+  fill-opacity: .7;
+  stroke:#000;
+  stroke-opacity: .3;
+}
+
+.industryRect {
+  fill-opacity: 0.7;
+  stroke: #000;
+  stroke-opacity: 0.3;
+}
+
+circle:hover,
+circle.hovered {
+  fill: #b23d1a !important;
+  fill-opacity: 0.8 !important;
+  stroke-opacity: 1 !important;
+}
+
+.d3-tip {
+  line-height: 1;
+  padding: 6px;
+  background: rgba(240, 240, 240, 0.95);
+  color: #333;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(240, 240, 240, 0.95);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips specifically */
+.d3-tip.n:after {
+  margin: -2px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.d3-tip h5{
+  font-size: 13px;
+  font-weight: 600;
+  margin: 2px 10px 4px 2px;
+}
+
+.d3-tip thead td {
+  border-bottom: 1px solid #ccc;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.d3-tip td {
+  padding: 2px 10px 2px 2px;
+}
+
+.d3-tip thead tr {
+  padding-top: 10px;
+}
+
+label {
+    font-size: 13px;
+}
+
+#main {
+    margin: 20px;
+}
+
+text.heading {
+  font-family: 'Vidaloka', serif;
+  font-size: 72px;
+}
+
+text.subheading {
+  font-family: 'Vidaloka', serif;
+  font-size: 20px;
+}
