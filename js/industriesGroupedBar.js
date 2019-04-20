@@ -24,7 +24,7 @@ function industriesGroupedBars(){
         percent: [0, 40]
     };
 
-    d3.csv('./data/EmploymentByMajorIndustryByPlaceOfWork2017.csv',
+    d3.csv('./data/EmploymentByMajorIndustryAndPlaceOfWork2017.csv',
         // Load data and use this function to process each row
         function(row) {
             return {
@@ -36,7 +36,7 @@ function industriesGroupedBars(){
         function(error, dataset) {
             // Log and return from an error
             if(error) {
-                console.error('Error while loading ./data/EmploymentByMajorIndustryByPlaceOfWork2017.csv dataset.');
+                console.error('Error while loading ./data/EmploymentByMajorIndustryAndPlaceOfWork2017.csv dataset.');
                 console.error(error);
                 return;
             }
