@@ -7,16 +7,32 @@ var svgHeight = +svg.attr('height');
 var padding = {t: 120, r: 40, b: 40, l: 40};
 
 //Make the title text for the page
-var heading = svg.append('text')
+svg.append('text')
     .attr('class','heading')
     .attr('text-anchor','middle')
     .attr('transform','translate('+svgWidth/2+','+(padding.t-32)+')')
     .text('Develop Danville');
-var heading = svg.append('text')
+svg.append('text')
     .attr('class','subheading')
     .attr('text-anchor','middle')
     .attr('transform','translate('+svgWidth/2+','+(padding.t+20)+')')
     .text('Visualizing Data Gathered from DevelopDanville.com');
+svg.append('text')
+    .attr('class','subsubheading')
+    .attr('transform','translate('+10+','+(10)+')')
+    .text('Built by Wil Roberts');
+
+//Append link to source
+svg.append('a')
+    .attr('xlink:href','https://www.developdanville.com')
+    .append('rect')
+    .attr('id','linkRect')
+    .attr('width','180px')
+    .attr('height','30')
+    .attr('transform','translate('+(svgWidth/2+50)+','+(padding.t)+')')
+    .attr('fill','black')
+    .style('fill-opacity','0')
+    .style('stroke','none');
 
 var showingEconomics = true;
 

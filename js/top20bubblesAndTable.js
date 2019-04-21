@@ -107,11 +107,19 @@ function top20BubblesAndTable(){
             top20bubbles.append('circle')
                 .attr('id',function(d){return 'bubble'+d.name.substring(0,3);})
                 .attr('r',function(d){return rScale(d.employees);})
-                .attr('class','top20bubble');
+                .attr('class','top20bubble')
+                .on('mouseover',function(d){
+                    d3.select('#entry'+d.name.substring(0,3)).selectAll('text')
+                        .style('font-weight','bold');
+                })
+                .on('mouseout',function(d){
+                    d3.select('#entry'+d.name.substring(0,3)).selectAll('text')
+                        .style('font-weight','normal');
+                });
 
             
             
-                //==================================================================================================
+            //==================================================================================================
             //Now make the table
             top20TableG.append('line')
                 .attr('x1','0')

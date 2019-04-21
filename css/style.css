@@ -116,3 +116,8 @@ text.subheading {
   font-family: 'Vidaloka', serif;
   font-size: 20px;
 }
+
+text.subsubheading {
+  font-family: 'Vidaloka', serif;
+  font-size: 10px;
+}

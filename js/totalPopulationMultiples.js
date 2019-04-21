@@ -46,10 +46,10 @@ function totalPopulationMultiples(){
             var interiorChartWidth = 200;
 
             for(i=0;i<totalPopNest.length;i++){
-                makeTotalPopCharts(totalPopNest[i].values,i);
+                makeTotalPopChart(totalPopNest[i].values,i);
             }
             
-            function makeTotalPopCharts(data, i){
+            function makeTotalPopChart(data, i){
 
                 var thisG = totalPopChartG.append('g')
                     .attr('transform','translate('+(i*interiorChartWidth+3*i*padding.l)+',0)');
