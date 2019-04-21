@@ -25,6 +25,7 @@ svg.append('text')
 //Append link to source
 svg.append('a')
     .attr('xlink:href','https://www.developdanville.com')
+    .attr('xlink:show','new')
     .append('rect')
     .attr('id','linkRect')
     .attr('width','180px')
