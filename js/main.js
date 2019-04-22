@@ -16,13 +16,13 @@ svg.append('text')
     .attr('class','subheading')
     .attr('text-anchor','middle')
     .attr('transform','translate('+svgWidth/2+','+(padding.t+20)+')')
-    .text('Visualizing Data Gathered from DevelopDanville.com');
+    .text('Visualizing Data Gathered at DevelopDanville.com');
 svg.append('text')
     .attr('class','subsubheading')
     .attr('transform','translate('+10+','+(10)+')')
     .text('Built by Wil Roberts');
 
-//Append link to source
+//Append link to DevelopDanville.com
 svg.append('a')
     .attr('xlink:href','https://www.developdanville.com')
     .attr('xlink:show','new')
@@ -36,6 +36,18 @@ svg.append('a')
     .style('stroke','none');
 
 var showingEconomics = true;
+
+//Append link to DevelopDanville.com
+svg.append('text')
+    .attr('class','subsubheading')
+    .attr('transform','translate('+10+','+25+')')
+    .text('Data source');
+
+svg.append('path')
+    .attr('d','M19.175,4.856L15.138,0.82c-0.295-0.295-0.817-0.295-1.112,0L8.748,6.098c-0.307,0.307-0.307,0.805,0,1.112l1.462,1.462l-1.533,1.535L7.215,8.746c-0.307-0.307-0.805-0.307-1.112,0l-5.278,5.276c-0.307,0.307-0.307,0.805,0,1.112l4.037,4.037c0.154,0.153,0.355,0.23,0.556,0.23c0.201,0,0.403-0.077,0.556-0.23l5.28-5.276c0.148-0.148,0.23-0.347,0.23-0.556c0-0.209-0.083-0.409-0.23-0.556l-1.464-1.464l1.533-1.535l1.462,1.462c0.153,0.153,0.355,0.23,0.556,0.23c0.201,0,0.402-0.077,0.556-0.23l5.278-5.278c0.147-0.147,0.23-0.347,0.23-0.556C19.406,5.203,19.322,5.004,19.175,4.856zM9.585,13.339l-4.167,4.164l-2.925-2.925l4.166-4.164l0.906,0.905l-0.67,0.668c-0.307,0.307-0.307,0.805,0,1.112c0.154,0.153,0.356,0.23,0.556,0.23c0.203,0,0.403-0.077,0.556-0.23l0.67-0.668L9.585,13.339z M13.341,9.578l-0.906-0.906l0.663-0.662c0.307-0.307,0.307-0.805,0-1.112c-0.307-0.307-0.805-0.307-1.112,0L11.322,7.56l-0.906-0.906l4.166-4.166l2.925,2.925L13.341,9.578z')
+    .attr('transform','translate(64,17) scale(0.5)')
+    .style('fill','black')
+    .style('stroke','none');
 
 top20BubblesAndTable();
 industriesGroupedBars();
@@ -63,6 +75,11 @@ function makeNavButtons(){
                     .style('fill-opacity','1');
                 d3.select(this).selectAll('rect')
                     .style('stroke-opacity','1');
+                d3.select('#dataLink')
+                    .attr('xlink:href',function(){
+                        if(showingEconomics){return 'http://www.thinkkentucky.com/cmnty/BusInd.aspx?cw=114';}
+                        else{return 'http://www.thinkkentucky.com/cmnty/Demog.aspx?cw=114';}
+                    });
             }
         })
         .on('mouseover',function(){
@@ -113,6 +130,11 @@ function makeNavButtons(){
                     .style('fill-opacity','1');
                 d3.select(this).selectAll('rect')
                     .style('stroke-opacity','1');
+                d3.select('#dataLink')
+                    .attr('xlink:href',function(){
+                        if(showingEconomics){return 'http://www.thinkkentucky.com/cmnty/BusInd.aspx?cw=114';}
+                        else{return 'http://www.thinkkentucky.com/cmnty/Demog.aspx?cw=114';}
+                    });
             }
         })
         .on('mouseover',function(){
@@ -143,8 +165,25 @@ function makeNavButtons(){
         .style('font-size','10px')
         .style('fill-opacity','0.6')
         .text('Population Data');
+
+    //Change the link
+    svg.append('a')
+        .attr('id','dataLink')
+        .attr('xlink:href',function(){
+            if(showingEconomics){return 'http://www.thinkkentucky.com/cmnty/BusInd.aspx?cw=114';}
+            else{return 'http://www.thinkkentucky.com/cmnty/Demog.aspx?cw=114';}
+        })
+        .attr('xlink:show','new')
+        .append('rect')
+        .attr('id','linkRect')
+        .attr('width','65px')
+        .attr('height','12')
+        .attr('transform','translate('+10+','+15+')')
+        .attr('fill','black')
+        .style('fill-opacity','0')
+        .style('stroke','none');
 }
 
-function removeClassed(text){
-    d3.selectAll('.'+text).remove();
+function removeClassed(theClass){
+    d3.selectAll('.'+theClass).remove();
 }
