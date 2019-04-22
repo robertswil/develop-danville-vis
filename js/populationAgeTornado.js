@@ -21,7 +21,7 @@ function populationAgeTornado(){
         .offset([-12, 0])
         .html(function(d) {
             // Inject html, when creating your html I recommend editing the html within your index.html first
-            return "<h5>"+d.scope+"</h5><table><thead><tr><td>Age</td></tr></thead>"
+            return "<table><thead><tr><td>Age</td></tr></thead>"
                     + "<tbody><tr><td>"+d.age+"</td></tr></tbody>"
                     + "<thead><tr><td>Percent</td></tr></thead>"
                     + "<tbody><tr><td>"+(100*d.number/totalPerScope[d.scope]).toFixed(1)+"%</td></tr></tbody>"
