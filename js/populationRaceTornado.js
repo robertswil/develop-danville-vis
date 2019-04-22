@@ -89,7 +89,7 @@ function populationRaceTornado(){
             raceChartG.append('text')
                 .attr('id','xLabelRight')
                 .attr('text-anchor','middle')
-                .attr('transform','translate('+(3*raceWidth/4-7)+','+(-20)+')')
+                .attr('transform','translate('+(3*raceWidth/4+7)+','+(-20)+')')
                 .style('font-family','PT Sans, sans-serif')
                 .style('font-size','12px')
                 .text('Boyle County');

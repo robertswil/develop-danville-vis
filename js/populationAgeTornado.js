@@ -54,7 +54,7 @@ function populationAgeTornado(){
 
             var names = d3.map(age, function(d){
                 return d.age;
-            }).keys();
+            }).keys().reverse();
             var categories = d3.map(age, function(d){
                 return d.scope;
             }).keys();
@@ -83,7 +83,7 @@ function populationAgeTornado(){
                 .text('Labor Market Area');
             ageChartG.append('text')
                 .attr('text-anchor','middle')
-                .attr('transform','translate('+(3*ageWidth/4-7)+','+(-20)+')')
+                .attr('transform','translate('+(3*ageWidth/4+7)+','+(-20)+')')
                 .style('font-family','PT Sans, sans-serif')
                 .style('font-size','12px')
                 .text('Boyle County');
