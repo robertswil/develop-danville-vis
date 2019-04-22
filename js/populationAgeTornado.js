@@ -7,7 +7,8 @@ function populationAgeTornado(){
 
     ageChartG.append('text')
         .attr('class','charttitle')
-        .attr('transform','translate(65,-45)')
+        .attr('text-anchor','middle')
+        .attr('transform','translate('+(svgWidth/4-padding.l)+',-45)')
         .style('font-family','PT Sans, sans-serif')
         .text('Population by Age Group, 2017');
 
