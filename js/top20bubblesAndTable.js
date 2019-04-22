@@ -10,7 +10,7 @@ function top20BubblesAndTable(){
         .attr('text-anchor','middle')
         .attr('transform','translate('+(svgWidth/2-padding.l)+','+(2.5*padding.t-10)+')')
         .style('font-family','PT Sans, sans-serif')
-        .text('Top 20 By Employment and Year Established');
+        .text('Top 20 By Employment and Year Established*');
 
     // Compute chart dimensions
     var chartWidth = (svgWidth - padding.l - padding.r);
@@ -26,7 +26,14 @@ function top20BubblesAndTable(){
         .attr('class','charttitle')
         .attr('transform','translate(94,-36)')
         .style('font-family','PT Sans, sans-serif')
-        .text('Top 20 By Employment');
+        .text('Top 20 By Employment*');
+
+    svg.append('text')
+        .attr('class','subsubheading economics')
+        .attr('text-anchor','middle')
+        .attr('transform','translate('+5*svgWidth/6+','+6*padding.t+')')
+        .style('font-style','italic')
+        .text('* Manufacturing + Science & Technology sectors only')
 
     // Compute table dimensions
     var tableWidth = (svgWidth/2.5 - padding.l - padding.r);
