@@ -37,9 +37,7 @@ svg {
   stroke-opacity: .3;
 }
 
-.industryRect
-.ageRect
-.populationRect {
+.industryRect {
   fill-opacity: 0.7;
   stroke: #000;
   stroke-opacity: 0.3;
