@@ -25,7 +25,7 @@ function populationAgeTornado(){
             return "<table><thead><tr><td>Age</td></tr></thead>"
                     + "<tbody><tr><td>"+d.age+"</td></tr></tbody>"
                     + "<thead><tr><td>Percent</td></tr></thead>"
-                    + "<tbody><tr><td>"+(100*d.number/totalPerScope[d.scope]).toFixed(1)+"%</td></tr></tbody>"
+                    + "<tbody><tr><td>"+(100*d.number/totalPerScopeAge[d.scope]).toFixed(1)+"%</td></tr></tbody>"
         });
 
     // Initialize tooltip on the svg, this adds the tooltip div to the <body> element
@@ -48,7 +48,7 @@ function populationAgeTornado(){
                 return;
             }
 
-            totalPerScope = d3.nest()
+            totalPerScopeAge = d3.nest()
                 .key(function(d){ return d.scope;})
                 .rollup(function(v){ return d3.sum(v, function(d){return d.number;})})
                 .object(age);
@@ -111,15 +111,15 @@ function populationAgeTornado(){
                 .attr('class','ageRect data')
                 .attr('width',function(d){
                     if(d.scope == 'Labor Market Area'){
-                        return xScaleAgeLeft(40-100*d.number/totalPerScope[d.scope]);
+                        return xScaleAgeLeft(40-100*d.number/totalPerScopeAge[d.scope]);
                     }else if(d.scope == 'Boyle County'){
-                        return xScaleAgeRight(100*d.number/totalPerScope[d.scope]);
+                        return xScaleAgeRight(100*d.number/totalPerScopeAge[d.scope]);
                     }
                 })
                 .attr('height',yScaleAge.bandwidth())
                 .attr('transform',function(d){
                     if(d.scope == 'Labor Market Area'){
-                        var tx = ageWidth/2 - xScaleAgeLeft(40-100*d.number/totalPerScope[d.scope]);
+                        var tx = ageWidth/2 - xScaleAgeLeft(40-100*d.number/totalPerScopeAge[d.scope]);
                     }else if(d.scope == 'Boyle County'){
                         var tx = ageWidth/2+7;
                     }

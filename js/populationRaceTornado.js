@@ -24,7 +24,7 @@ function populationRaceTornado(){
             return "<table><thead><tr><td>Race</td></tr></thead>"
                     + "<tbody><tr><td>"+d.race+"</td></tr></tbody>"
                     + "<thead><tr><td>Percent</td></tr></thead>"
-                    + "<tbody><tr><td>"+(100*d.number/totalPerScope[d.scope]).toFixed(1)+"%</td></tr></tbody>"
+                    + "<tbody><tr><td>"+(100*d.number/totalPerScopeRace[d.scope]).toFixed(1)+"%</td></tr></tbody>"
         });
 
     // Initialize tooltip on the svg, this adds the tooltip div to the <body> element
@@ -51,10 +51,11 @@ function populationRaceTornado(){
                 return d3.descending(x.number, y.number);
             });
 
-            totalPerScope = d3.nest()
+            totalPerScopeRace = d3.nest()
                 .key(function(d){ return d.scope;})
                 .rollup(function(v){ return d3.sum(v, function(d){return d.number;})})
                 .object(race);
+                console.log(totalPerScopeRace);
 
             var names = d3.map(race, function(d){
                 return d.race;
@@ -116,15 +117,15 @@ function populationRaceTornado(){
                 .attr('class','raceRect data')
                 .attr('width',function(d){
                     if(d.scope == 'Labor Market Area'){
-                        return xScaleLeft(100-100*d.number/totalPerScope[d.scope]);
+                        return xScaleLeft(100-100*d.number/totalPerScopeRace[d.scope]);
                     }else if(d.scope == 'Boyle County'){
-                        return xScaleRight(100*d.number/totalPerScope[d.scope]);
+                        return xScaleRight(100*d.number/totalPerScopeRace[d.scope]);
                     }
                 })
                 .attr('height',yScaleRace.bandwidth())
                 .attr('transform',function(d){
                     if(d.scope == 'Labor Market Area'){
-                        var tx = raceWidth/2 - xScaleLeft(100-100*d.number/totalPerScope[d.scope]);
+                        var tx = raceWidth/2 - xScaleLeft(100-100*d.number/totalPerScopeRace[d.scope]);
                     }else if(d.scope == 'Boyle County'){
                         var tx = raceWidth/2+7;
                     }
