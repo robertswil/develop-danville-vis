@@ -127,7 +127,6 @@ function populationAgeTornado(){
                     return 'translate('+tx+','+ty+')';
                 })
                 .style('fill',function(d){return colorScale(d.scope);})
-                .style('fill-opacity','0.7')
                 .on('mouseover',ageTip.show)
                 .on('mouseout',ageTip.hide);
 
